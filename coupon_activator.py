@@ -45,7 +45,9 @@ class Activator:
         elif self.browser == "Chrome":
             driver = webdriver.Chrome()
         elif self.browser == "Firefox":
-            driver = webdriver.Firefox()
+            option = webdriver.FirefoxOptions()
+            option.add_argument('-headless')
+            driver = webdriver.Firefox(options=option)
         else:
             print("Only Edge, Chrome and Firefox supported.")
         return driver
